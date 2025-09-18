@@ -49,6 +49,7 @@ h1 {
   width: 100px;
   height: 100px;
   border: 2px solid black;
+  background: #99b3ff;
   display: flex;
   align-items: center;
   justify-content: center;
