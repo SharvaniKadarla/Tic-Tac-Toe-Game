@@ -56,12 +56,22 @@ function checkWinner() {
 // Handle cell click
 function cellClicked(index) {
   if (board[index] === "" && !gameOver) {
-    board[index] = currentPlayer === "X" ? "❌" : "⭕"; // using emojis
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    // place the symbol (emoji)
+    board[index] = currentPlayer === "X" ? "❌" : "⭕";
+
+    // check for a win or tie for the player who just moved
     checkWinner();
+
+    // only switch player if the game is not finished
+    if (!gameOver) {
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
+    }
+
+    // update UI
     renderBoard();
   }
 }
+
 
 // Start game on load
 window.onload = initializeGame;
